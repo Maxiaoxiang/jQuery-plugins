@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+.category{
+	clear:both;
+}
+.category .title{
+	padding:10px 0;
+	border-bottom: 1px dashed #ccc;
+}
+.category .main ul li{
+	float: left;
+	margin:0 50px 20px 0;
+}
