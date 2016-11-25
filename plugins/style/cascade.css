@@ -15,10 +15,18 @@ html,body{
     width:100px;
     height: 100px;
     background-color:#ccc;
-/*    transition: all 2s;
+    transition: all 2s;
     -moz-transition: all 2s;
     -webkit-transition: all 2s;
-    -o-transition: all 2s;*/
+    -o-transition: all 2s;
+}
+.mod-box:before, .mod-box:after{
+    content: "";
+    display: table;
+}
+.mod-box:after{
+    clear: both;
+    overflow: hidden;
 }
 .item1,.item3,.item5,.item7,.item9{
     height:200px;

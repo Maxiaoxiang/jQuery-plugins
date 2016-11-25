@@ -2,239 +2,248 @@
 <html lang="en-us">
     <head>
         <meta charset="UTF-8">
-        <title>Mss。-dialog</title>
+        <title>dialog.js - Mss</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="../favicon.ico" rel="icon" type="image/x-icon" />
-        <link rel="stylesheet" type="text/css" href="../stylesheets/normalize.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://maxiaoxiang.com/stylesheets/normalize.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://maxiaoxiang.com/stylesheets/public.css" media="screen">
         <link rel="stylesheet" type="text/css" href="./style/dialog.css" media="screen">
-        <link rel="stylesheet" type="text/css" href="./style/common.css" media="screen">
         <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
     </head>
     <body>
-        <div class="nav">
-            <div class="head">
-                <a href="http://maxiaoxiang.com">Mss。</a>
-            </div>
-            <ul>
-                <li>
-                    <a href="./index.html" class="active">组件库</a>
-                </li>
-                <li>
-                    <a href="../blog/">博客</a>
-                </li>
-                <li>
-                    <a href="../about.html">关于我</a>
-                </li>
-                <li>
-                    <a href="../message.html">留言板</a>
-                </li>
-            </ul>
-        </div>
         <div class="wrapper">
-            <h1>弹出层-dialog</h1>
-            <a style="float:right;" href="./download/dialog/dialog.zip" target="_self">下载该插件</a>
-            <p>需先引入jQuery，再引入dialog组件</p>
-            <pre class="bad">&lt;script&nbsp;src="jquery.js"&gt;&lt;/script&gt;</pre>
-            <pre class="bad">&lt;script&nbsp;src="jquery.dialog.js"&gt;&lt;/script&gt;</pre>
-            <p>组件样式与功能分离，自定义样式</p>
-            <div class="eg">
-                <input type="button" class="dialog1" value="设置标题&内容&按钮回调&遮罩可点击&显示前置事件">
-                <p>HTML</p>
-<pre style="margin:15px 0;padding:10px 12px;border:#ccc 1px solid;border-left-width:4px;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"><span style="color:#170">&lt;div</span> <span style="color:#00c">class</span>=<span style="color:#a11">"M-box"</span><span style="color:#170">&gt;</span><span style="color:#170">&lt;/div</span><span style="color:#170">&gt;</span></pre>
-                <p>Javascript</p>
-<pre style="margin:15px 0;padding:10px 12px;border:#ccc 1px solid;border-left-width:4px;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"><span style="color:#000">$</span>(<span style="color:#a11">'.dialog1'</span>).<span style="color:#000">click</span>(<span style="color:#708">function</span>(){<br>    <span style="color:#000">$</span>(<span style="color:#a11">'.M-box'</span>).<span style="color:#000">dialog</span>({<br>        <span style="color:#000">title</span>:<span style="color:#a11">'标题'</span>,<br>        <span style="color:#000">content</span>:<span style="color:#a11">'内容'</span>,<br>        <span style="color:#000">clickMask</span>:<span style="color:#219">true</span>,<br>        <span style="color:#000">isDraggable</span>:<span style="color:#219">true</span>,<br>        <span style="color:#000">button</span>:{<br>            <span style="color:#a11">'确定|ok'</span>:<span style="color:#708">function</span>(<span style="color:#00f">api</span>){<br>                <span style="color:#000">alert</span>(<span style="color:#a11">'确定前回调'</span>);<br>                <span style="color:#000-2">api</span>.<span style="color:#000">close</span>();<br>            },<br>            <span style="color:#a11">'取消|cancel'</span>:<span style="color:#708">function</span>(<span style="color:#00f">api</span>){<br>                <span style="color:#000-2">api</span>.<span style="color:#000">close</span>();<br>            }<br>        },<br>        <span style="color:#000">beforeShow</span>:<span style="color:#708">function</span>(){<br>            <span style="color:#000">alert</span>(<span style="color:#a11">'显示前事件'</span>);<br>        }<br>    });<br>});</pre>
+            <div class="container">
+                <div class="sidebar">
+                    <div class="hd">
+                        <div class="site-meta">
+                            <a href="http://maxiaoxiang.com" class="brand">
+                                <span class="site-title">Mss。</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="bd">
+                        <div class="stie-nav">
+                            <ul class="menu">
+                                <li class="menu-item menu-item-active">
+                                    <a href="http://maxiaoxiang.com/index.html">插件库</a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="http://maxiaoxiang.com/blog/" target="_blank">博客</a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="http://maxiaoxiang.com/message.html">留言板</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="content">
+                    <h1>弹出层-dialog</h1>
+                    <a style="float:right;" href="./download/dialog/dialog.zip" target="_self">下载该插件</a>
+                    <p>需先引入jQuery，再引入dialog组件</p>
+                    <pre class="bad">&lt;script&nbsp;src="jquery.js"&gt;&lt;/script&gt;</pre>
+                    <pre class="bad">&lt;script&nbsp;src="jquery.dialog.js"&gt;&lt;/script&gt;</pre>
+                    <p>组件样式与功能分离，自定义样式</p>
+                    <div class="eg">
+                        <input type="button" class="dialog1" value="设置标题&内容&按钮回调&遮罩可点击&显示前置事件">
+                        <p>HTML</p>
+        <pre style="margin:15px 0;padding:10px 12px;border:#ccc 1px solid;border-left-width:4px;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"><span style="color:#170">&lt;div</span> <span style="color:#00c">class</span>=<span style="color:#a11">"M-box"</span><span style="color:#170">&gt;</span><span style="color:#170">&lt;/div</span><span style="color:#170">&gt;</span></pre>
+                        <p>Javascript</p>
+        <pre style="margin:15px 0;padding:10px 12px;border:#ccc 1px solid;border-left-width:4px;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"><span style="color:#000">$</span>(<span style="color:#a11">'.dialog1'</span>).<span style="color:#000">click</span>(<span style="color:#708">function</span>(){<br>    <span style="color:#000">$</span>(<span style="color:#a11">'.M-box'</span>).<span style="color:#000">dialog</span>({<br>        <span style="color:#000">title</span>:<span style="color:#a11">'标题'</span>,<br>        <span style="color:#000">content</span>:<span style="color:#a11">'内容'</span>,<br>        <span style="color:#000">clickMask</span>:<span style="color:#219">true</span>,<br>        <span style="color:#000">isDraggable</span>:<span style="color:#219">true</span>,<br>        <span style="color:#000">button</span>:{<br>            <span style="color:#a11">'确定|ok'</span>:<span style="color:#708">function</span>(<span style="color:#00f">api</span>){<br>                <span style="color:#000">alert</span>(<span style="color:#a11">'确定前回调'</span>);<br>                <span style="color:#000-2">api</span>.<span style="color:#000">close</span>();<br>            },<br>            <span style="color:#a11">'取消|cancel'</span>:<span style="color:#708">function</span>(<span style="color:#00f">api</span>){<br>                <span style="color:#000-2">api</span>.<span style="color:#000">close</span>();<br>            }<br>        },<br>        <span style="color:#000">beforeShow</span>:<span style="color:#708">function</span>(){<br>            <span style="color:#000">alert</span>(<span style="color:#a11">'显示前事件'</span>);<br>        }<br>    });<br>});</pre>
+                    </div>
+                    <div class="eg">
+                        <input type="button" class="dialog2" value="消息提示&显示前置事件&2秒后消失&关闭后回调">
+                        <p>HTML</p>
+        <pre style="margin:15px 0;padding:10px 12px;border:#ccc 1px solid;border-left-width:4px;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"><span style="color:#170">&lt;div</span> <span style="color:#00c">class</span>=<span style="color:#a11">"M-message"</span><span style="color:#170">&gt;</span><span style="color:#170">&lt;/div</span><span style="color:#170">&gt;</span></pre>
+                        <p>Javascript</p>
+        <pre style="margin:15px 0;padding:10px 12px;border:#ccc 1px solid;border-left-width:4px;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"><span style="color:#000">$</span>(<span style="color:#a11">'.dialog2'</span>).<span style="color:#000">click</span>(<span style="color:#708">function</span>(){<br>    <span style="color:#000">$</span>(<span style="color:#a11">'.M-message'</span>).<span style="color:#000">dialog</span>({<br>        <span style="color:#000">type</span>:<span style="color:#a11">'message'</span>,<br>        <span style="color:#000">content</span>:<span style="color:#a11">'这条消息2秒后关闭'</span>,<br>        <span style="color:#000">beforeShow</span>:<span style="color:#708">function</span>(){<br>            <span style="color:#000">alert</span>(<span style="color:#a11">'显示前事件'</span>);<br>        },<br>        <span style="color:#000">afterHide</span>:<span style="color:#708">function</span>(){<br>            <span style="color:#000">alert</span>(<span style="color:#a11">'关闭后事件'</span>);<br>        }<br>    });<br>});</pre> 
+                    </div>
+                    <div class="eg">
+                        <input type="button" class="dialog3" value="组合&回调初始化一个弹窗">
+                        <p>HTML</p>
+        <pre style="margin:15px 0;padding:10px 12px;border:#ccc 1px solid;border-left-width:4px;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"><span style="color:#170">&lt;div</span> <span style="color:#00c">class</span>=<span style="color:#a11">"M-box"</span><span style="color:#170">&gt;</span><span style="color:#170">&lt;/div</span><span style="color:#170">&gt;</span><br><span style="color:#170">&lt;div</span> <span style="color:#00c">class</span>=<span style="color:#a11">"M-message"</span><span style="color:#170">&gt;</span><span style="color:#170">&lt;/div</span><span style="color:#170">&gt;</span></pre>
+                        <p>Javascript</p>
+        <pre style="margin:15px 0;padding:10px 12px;border:#ccc 1px solid;border-left-width:4px;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"><span style="color:#000">$</span>(<span style="color:#a11">'.dialog3'</span>).<span style="color:#000">click</span>(<span style="color:#708">function</span>(){<br>    <span style="color:#000">$</span>(<span style="color:#a11">'.M-box'</span>).<span style="color:#000">dialog</span>({<br>        <span style="color:#000">title</span>:<span style="color:#a11">'标题'</span>,<br>        <span style="color:#000">content</span>:<span style="color:#a11">'内容'</span>,<br>        <span style="color:#000">clickMask</span>:<span style="color:#219">true</span>,<br>        <span style="color:#000">isDraggable</span>:<span style="color:#219">true</span>,<br>        <span style="color:#000">button</span>:{<br>            <span style="color:#a11">'yes'</span>:<span style="color:#708">function</span>(<span style="color:#00f">api</span>){<br>                <span style="color:#000-2">api</span>.<span style="color:#000">close</span>();<br>                <span style="color:#000">$</span>(<span style="color:#a11">'.M-message'</span>).<span style="color:#000">dialog</span>({<br>                    <span style="color:#000">type</span>:<span style="color:#a11">'message'</span>,<br>                    <span style="color:#000">content</span>:<span style="color:#a11">'选择了yes'</span><br>                });<br>            },<br>            <span style="color:#a11">'no'</span>:<span style="color:#708">function</span>(<span style="color:#00f">api</span>){<br>                <span style="color:#000-2">api</span>.<span style="color:#000">close</span>();<br>                <span style="color:#000">$</span>(<span style="color:#a11">'.M-message'</span>).<span style="color:#000">dialog</span>({<br>                    <span style="color:#000">type</span>:<span style="color:#a11">'message'</span>,<br>                    <span style="color:#000">content</span>:<span style="color:#a11">'选择了no'</span><br>                });<br>            }<br>        }<br>    });<br>});</pre>
+                    </div>
+                    <div class="eg">
+                        <input type="button" class="dialog4" value="克隆拖动&缩放">
+                        <p>HTML</p>
+        <pre style="margin:15px 0;padding:10px 12px;border:#ccc 1px solid;border-left-width:4px;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"><span style="color:#170">&lt;div</span> <span style="color:#00c">class</span>=<span style="color:#a11">"M-box"</span><span style="color:#170">&gt;</span><span style="color:#170">&lt;/div</span><span style="color:#170">&gt;</span></pre>                
+                        <p>Javascript</p>
+        <pre style="margin:15px 0;padding:10px 12px;border:#ccc 1px solid;border-left-width:4px;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"><span style="color:#000">$</span>(<span style="color:#a11">'.dialog4'</span>).<span style="color:#000">click</span>(<span style="color:#708">function</span>(){<br>    <span style="color:#000">$</span>(<span style="color:#a11">'.M-box'</span>).<span style="color:#000">dialog</span>({<br>        <span style="color:#000">title</span>:<span style="color:#a11">'标题'</span>,<br>        <span style="color:#000">content</span>:<span style="color:#a11">'内容'</span>,<br>        <span style="color:#000">isDraggable</span>:<span style="color:#219">true</span>,<br>        <span style="color:#000">clone</span>:<span style="color:#219">true</span>,<br>        <span style="color:#000">isResizable</span>:<span style="color:#219">true</span><br>    });<br>});</pre>
+                    </div>
+                    <div class="options">
+                        <p>options(参数配置)</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>参数</td>
+                                    <td>默认值</td>
+                                    <td class="explain">说明</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>title</td>
+                                    <td>''</td>
+                                    <td class="explain">标题</td>
+                                </tr>
+                                <tr>
+                                    <td>close</td>
+                                    <td>'x'</td>
+                                    <td class="explain">关闭按钮内容</td>
+                                </tr>
+                                <tr>
+                                    <td>content</td>
+                                    <td>''</td>
+                                    <td class="explain">内容</td>
+                                </tr>
+                                <tr>
+                                    <td>zIndexplain</td>
+                                    <td>9999</td>
+                                    <td class="explain">弹窗层级</td>
+                                </tr>
+                                <tr>
+                                    <td>isMask</td>
+                                    <td>true</td>
+                                    <td class="explain">是否开启遮罩</td>
+                                </tr>
+                                <tr>
+                                    <td>clickMask</td>
+                                    <td>false</td>
+                                    <td class="explain">是否可以点击遮罩关闭弹窗</td>
+                                </tr>
+                                <tr>
+                                    <td>opacity</td>
+                                    <td>0.5</td>
+                                    <td class="explain">遮罩透明度</td>
+                                </tr>
+                                <tr>
+                                    <td>button</td>
+                                    <td>{}</td>
+                                    <td class="explain">按钮配置，例：'确定|ok':function(){}，名字|样式名+回调，多个按钮用逗号隔开，如果没传样式默认样式为'M-btn'</td>
+                                </tr>
+                                <tr>
+                                    <td>type</td>
+                                    <td>'dialog'</td>
+                                    <td class="explain">值为'message'时无title，button，close并且自动关闭</td>
+                                </tr>
+                                <tr>
+                                    <td>time</td>
+                                    <td>2000</td>
+                                    <td class="explain">type为message时多少秒后自动关闭</td>
+                                </tr>
+                                <tr>
+                                    <td>followScroll</td>
+                                    <td>true</td>
+                                    <td class="explain">弹窗是否跟随屏幕滚动</td>
+                                </tr>
+                                <tr>
+                                    <td>isDraggable</td>
+                                    <td>true</td>
+                                    <td class="explain">是否能拖动</td>
+                                </tr>
+                                <tr>
+                                    <td>handleCls</td>
+                                    <td>'M-title'</td>
+                                    <td class="explain">拖动把手的class，默认为标题class</td>
+                                </tr>
+                                <tr>
+                                    <td>axis</td>
+                                    <td>''</td>
+                                    <td class="explain">拖动方向，值为：x / y</td>
+                                </tr>
+                                <tr>
+                                    <td>rangeCls</td>
+                                    <td>''</td>
+                                    <td class="explain">范围，默认为视图窗口</td>
+                                </tr>
+                                <tr>
+                                    <td>clone</td>
+                                    <td>false</td>
+                                    <td class="explain">克隆拖动，默认为false</td>
+                                </tr>
+                                <tr>
+                                    <td>cloneCls</td>
+                                    <td>'clone'</td>
+                                    <td class="explain">克隆拖动元素样式名</td>
+                                </tr>
+                                <tr>
+                                    <td>isResizable</td>
+                                    <td>false</td>
+                                    <td class="explain">缩放</td>
+                                </tr>
+                                <tr>
+                                    <td>beforeShow</td>
+                                    <td>function(){}</td>
+                                    <td class="explain">显示前的事件</td>
+                                </tr>
+                                <tr>
+                                    <td>afterHide</td>
+                                    <td>function(){}</td>
+                                    <td class="explain">关闭后的事件</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="callback">
+                        <p>api接口</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>方法</td>
+                                    <td>说明</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>open</td>
+                                    <td>打开弹窗</td>
+                                </tr>
+                                <tr>
+                                    <td>close</td>
+                                    <td>关闭弹窗</td>
+                                </tr>
+                                <tr>
+                                    <td>getOpen</td>
+                                    <td>获取弹窗是否打开，isOpen</td>
+                                </tr>
+                                <tr>
+                                    <td>scroll</td>
+                                    <td>窗口滚动居中</td>
+                                </tr>
+                                <tr>
+                                    <td>resize</td>
+                                    <td>窗口变化居中</td>
+                                </tr>
+                                <tr>
+                                    <td>getDraging</td>
+                                    <td>返回拖动状态</td>
+                                </tr>
+                                <tr>
+                                    <td>stop</td>
+                                    <td>停止拖动</td>
+                                </tr>
+                                <tr>
+                                    <td>getReszeing</td>
+                                    <td>返回缩放状态</td>
+                                </tr>
+                                <tr>
+                                    <td>resizeStop</td>
+                                    <td>停止缩放</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="M-box"></div>
+                    <div class="M-message"></div>
+                </div>
             </div>
-            <div class="eg">
-                <input type="button" class="dialog2" value="消息提示&显示前置事件&2秒后消失&关闭后回调">
-                <p>HTML</p>
-<pre style="margin:15px 0;padding:10px 12px;border:#ccc 1px solid;border-left-width:4px;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"><span style="color:#170">&lt;div</span> <span style="color:#00c">class</span>=<span style="color:#a11">"M-message"</span><span style="color:#170">&gt;</span><span style="color:#170">&lt;/div</span><span style="color:#170">&gt;</span></pre>
-                <p>Javascript</p>
-<pre style="margin:15px 0;padding:10px 12px;border:#ccc 1px solid;border-left-width:4px;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"><span style="color:#000">$</span>(<span style="color:#a11">'.dialog2'</span>).<span style="color:#000">click</span>(<span style="color:#708">function</span>(){<br>    <span style="color:#000">$</span>(<span style="color:#a11">'.M-message'</span>).<span style="color:#000">dialog</span>({<br>        <span style="color:#000">type</span>:<span style="color:#a11">'message'</span>,<br>        <span style="color:#000">content</span>:<span style="color:#a11">'这条消息2秒后关闭'</span>,<br>        <span style="color:#000">beforeShow</span>:<span style="color:#708">function</span>(){<br>            <span style="color:#000">alert</span>(<span style="color:#a11">'显示前事件'</span>);<br>        },<br>        <span style="color:#000">afterHide</span>:<span style="color:#708">function</span>(){<br>            <span style="color:#000">alert</span>(<span style="color:#a11">'关闭后事件'</span>);<br>        }<br>    });<br>});</pre> 
+            <div class="footer">
+                <p>&copy; <a href="http://github.com/Maxiaoxiang" target="_blank">Mss。</a><span class="spe">/</span>Powered by <a href="http://maxiaoxiang.com" target="_blank">Maxiaoxiang</a></p>
             </div>
-            <div class="eg">
-                <input type="button" class="dialog3" value="组合&回调初始化一个弹窗">
-                <p>HTML</p>
-<pre style="margin:15px 0;padding:10px 12px;border:#ccc 1px solid;border-left-width:4px;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"><span style="color:#170">&lt;div</span> <span style="color:#00c">class</span>=<span style="color:#a11">"M-box"</span><span style="color:#170">&gt;</span><span style="color:#170">&lt;/div</span><span style="color:#170">&gt;</span><br><span style="color:#170">&lt;div</span> <span style="color:#00c">class</span>=<span style="color:#a11">"M-message"</span><span style="color:#170">&gt;</span><span style="color:#170">&lt;/div</span><span style="color:#170">&gt;</span></pre>
-                <p>Javascript</p>
-<pre style="margin:15px 0;padding:10px 12px;border:#ccc 1px solid;border-left-width:4px;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"><span style="color:#000">$</span>(<span style="color:#a11">'.dialog3'</span>).<span style="color:#000">click</span>(<span style="color:#708">function</span>(){<br>    <span style="color:#000">$</span>(<span style="color:#a11">'.M-box'</span>).<span style="color:#000">dialog</span>({<br>        <span style="color:#000">title</span>:<span style="color:#a11">'标题'</span>,<br>        <span style="color:#000">content</span>:<span style="color:#a11">'内容'</span>,<br>        <span style="color:#000">clickMask</span>:<span style="color:#219">true</span>,<br>        <span style="color:#000">isDraggable</span>:<span style="color:#219">true</span>,<br>        <span style="color:#000">button</span>:{<br>            <span style="color:#a11">'yes'</span>:<span style="color:#708">function</span>(<span style="color:#00f">api</span>){<br>                <span style="color:#000-2">api</span>.<span style="color:#000">close</span>();<br>                <span style="color:#000">$</span>(<span style="color:#a11">'.M-message'</span>).<span style="color:#000">dialog</span>({<br>                    <span style="color:#000">type</span>:<span style="color:#a11">'message'</span>,<br>                    <span style="color:#000">content</span>:<span style="color:#a11">'选择了yes'</span><br>                });<br>            },<br>            <span style="color:#a11">'no'</span>:<span style="color:#708">function</span>(<span style="color:#00f">api</span>){<br>                <span style="color:#000-2">api</span>.<span style="color:#000">close</span>();<br>                <span style="color:#000">$</span>(<span style="color:#a11">'.M-message'</span>).<span style="color:#000">dialog</span>({<br>                    <span style="color:#000">type</span>:<span style="color:#a11">'message'</span>,<br>                    <span style="color:#000">content</span>:<span style="color:#a11">'选择了no'</span><br>                });<br>            }<br>        }<br>    });<br>});</pre>
-            </div>
-            <div class="eg">
-                <input type="button" class="dialog4" value="克隆拖动&缩放">
-                <p>HTML</p>
-<pre style="margin:15px 0;padding:10px 12px;border:#ccc 1px solid;border-left-width:4px;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"><span style="color:#170">&lt;div</span> <span style="color:#00c">class</span>=<span style="color:#a11">"M-box"</span><span style="color:#170">&gt;</span><span style="color:#170">&lt;/div</span><span style="color:#170">&gt;</span></pre>                
-                <p>Javascript</p>
-<pre style="margin:15px 0;padding:10px 12px;border:#ccc 1px solid;border-left-width:4px;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"><span style="color:#000">$</span>(<span style="color:#a11">'.dialog4'</span>).<span style="color:#000">click</span>(<span style="color:#708">function</span>(){<br>    <span style="color:#000">$</span>(<span style="color:#a11">'.M-box'</span>).<span style="color:#000">dialog</span>({<br>        <span style="color:#000">title</span>:<span style="color:#a11">'标题'</span>,<br>        <span style="color:#000">content</span>:<span style="color:#a11">'内容'</span>,<br>        <span style="color:#000">isDraggable</span>:<span style="color:#219">true</span>,<br>        <span style="color:#000">clone</span>:<span style="color:#219">true</span>,<br>        <span style="color:#000">isResizable</span>:<span style="color:#219">true</span><br>    });<br>});</pre>
-            </div>
-            <div class="options">
-                <p>options(参数配置)</p>
-                <table>
-                    <thead>
-                        <tr>
-                            <td>参数</td>
-                            <td>默认值</td>
-                            <td class="explain">说明</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>title</td>
-                            <td>''</td>
-                            <td class="explain">标题</td>
-                        </tr>
-                        <tr>
-                            <td>close</td>
-                            <td>'x'</td>
-                            <td class="explain">关闭按钮内容</td>
-                        </tr>
-                        <tr>
-                            <td>content</td>
-                            <td>''</td>
-                            <td class="explain">内容</td>
-                        </tr>
-                        <tr>
-                            <td>zIndexplain</td>
-                            <td>9999</td>
-                            <td class="explain">弹窗层级</td>
-                        </tr>
-                        <tr>
-                            <td>isMask</td>
-                            <td>true</td>
-                            <td class="explain">是否开启遮罩</td>
-                        </tr>
-                        <tr>
-                            <td>clickMask</td>
-                            <td>false</td>
-                            <td class="explain">是否可以点击遮罩关闭弹窗</td>
-                        </tr>
-                        <tr>
-                            <td>opacity</td>
-                            <td>0.5</td>
-                            <td class="explain">遮罩透明度</td>
-                        </tr>
-                        <tr>
-                            <td>button</td>
-                            <td>{}</td>
-                            <td class="explain">按钮配置，例：'确定|ok':function(){}，名字|样式名+回调，多个按钮用逗号隔开，如果没传样式默认样式为'M-btn'</td>
-                        </tr>
-                        <tr>
-                            <td>type</td>
-                            <td>'dialog'</td>
-                            <td class="explain">值为'message'时无title，button，close并且自动关闭</td>
-                        </tr>
-                        <tr>
-                            <td>time</td>
-                            <td>2000</td>
-                            <td class="explain">type为message时多少秒后自动关闭</td>
-                        </tr>
-                        <tr>
-                            <td>followScroll</td>
-                            <td>true</td>
-                            <td class="explain">弹窗是否跟随屏幕滚动</td>
-                        </tr>
-                        <tr>
-                            <td>isDraggable</td>
-                            <td>true</td>
-                            <td class="explain">是否能拖动</td>
-                        </tr>
-                        <tr>
-                            <td>handleCls</td>
-                            <td>'M-title'</td>
-                            <td class="explain">拖动把手的class，默认为标题class</td>
-                        </tr>
-                        <tr>
-                            <td>axis</td>
-                            <td>''</td>
-                            <td class="explain">拖动方向，值为：x / y</td>
-                        </tr>
-                        <tr>
-                            <td>rangeCls</td>
-                            <td>''</td>
-                            <td class="explain">范围，默认为视图窗口</td>
-                        </tr>
-                        <tr>
-                            <td>clone</td>
-                            <td>false</td>
-                            <td class="explain">克隆拖动，默认为false</td>
-                        </tr>
-                        <tr>
-                            <td>cloneCls</td>
-                            <td>'clone'</td>
-                            <td class="explain">克隆拖动元素样式名</td>
-                        </tr>
-                        <tr>
-                            <td>isResizable</td>
-                            <td>false</td>
-                            <td class="explain">缩放</td>
-                        </tr>
-                        <tr>
-                            <td>beforeShow</td>
-                            <td>function(){}</td>
-                            <td class="explain">显示前的事件</td>
-                        </tr>
-                        <tr>
-                            <td>afterHide</td>
-                            <td>function(){}</td>
-                            <td class="explain">关闭后的事件</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="callback">
-                <p>api接口</p>
-                <table>
-                    <thead>
-                        <tr>
-                            <td>方法</td>
-                            <td>说明</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>open</td>
-                            <td>打开弹窗</td>
-                        </tr>
-                        <tr>
-                            <td>close</td>
-                            <td>关闭弹窗</td>
-                        </tr>
-                        <tr>
-                            <td>getOpen</td>
-                            <td>获取弹窗是否打开，isOpen</td>
-                        </tr>
-                        <tr>
-                            <td>scroll</td>
-                            <td>窗口滚动居中</td>
-                        </tr>
-                        <tr>
-                            <td>resize</td>
-                            <td>窗口变化居中</td>
-                        </tr>
-                        <tr>
-                            <td>getDraging</td>
-                            <td>返回拖动状态</td>
-                        </tr>
-                        <tr>
-                            <td>stop</td>
-                            <td>停止拖动</td>
-                        </tr>
-                        <tr>
-                            <td>getReszeing</td>
-                            <td>返回缩放状态</td>
-                        </tr>
-                        <tr>
-                            <td>resizeStop</td>
-                            <td>停止缩放</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="M-box"></div>
-            <div class="M-message"></div>
         </div>
-        <footer>
-            <p>&copy; <a href="http://maxiaoxiang.com">Mss。</a><span class="spe">/</span>Powered by <a href="http://maxiaoxiang.com">Maxiaoxiang</a></p>
-        </footer>
-        <script src="../public/jquery.min.js"></script>
+        <script src="./script/lib/jquery.min.js"></script>
         <script src="./script/jquery.dialog.js"></script>
         <script>
             $(function(){
