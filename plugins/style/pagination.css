@@ -1,4 +1,7 @@
 @charset "UTF-8";
+.demo-image{
+    width: 100%;
+}
 .M-box,.M-box1,.M-box2,.M-box3,.M-box4{
 	position: relative;
     text-align: center;
