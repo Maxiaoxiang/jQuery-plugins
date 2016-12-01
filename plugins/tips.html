@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="cn-ZH">
+    <head>
+        <meta charset="UTF-8">
+        <title>tips.js - Mss</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="../favicon.ico" rel="icon" type="image/x-icon" />
+        <link rel="stylesheet" type="text/css" href="http://maxiaoxiang.com/stylesheets/normalize.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://maxiaoxiang.com/stylesheets/public.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="./style/tips.css" media="screen">
+        <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    </head>
+    <body>
+        <span class="tips" data-tips="这是一条提示信息">悬停</span>
+        <span class="tips" data-tips="这是一条提示信息222">悬停222</span>
+        <script src="./script/lib/jquery.min.js"></script>
+        <script src="./script/jquery.tips.js"></script>
+        <script>
+        $('.tips').tips();
+        </script>
+    </body>
+</html>

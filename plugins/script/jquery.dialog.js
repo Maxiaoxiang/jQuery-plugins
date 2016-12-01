@@ -2,7 +2,6 @@
  * dialog弹出层插件
  * @version 1.0.5
  * @url http://www.maxiaoxiang.com
- * @E-mail 251445460@qq.com
  */
 ;(function($,window,document,undefined){
 

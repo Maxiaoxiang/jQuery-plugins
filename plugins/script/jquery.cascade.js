@@ -3,7 +3,6 @@
  * @version 1.1.1
  * @author mss
  * @url http://maxiaoxiang.com/plugin/cascade.html
- * @E-mail 251445460@qq.com
  *
  * @调用方法
  * $(selector).cascade(option, callback);

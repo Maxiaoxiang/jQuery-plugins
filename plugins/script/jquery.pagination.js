@@ -2,8 +2,7 @@
  * pagination分页插件
  * @version 1.1.5
  * @author mss
- * @url http://maxiaoxiang.com/plugin/pagination.html
- * @E-mail 251445460@qq.com
+ * @url http://maxiaoxiang.com/jQuery-plugins/plugins/pagination.html
  *
  * @调用方法
  * $(selector).pagination();
