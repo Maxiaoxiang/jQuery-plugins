@@ -5,17 +5,42 @@
  *
  * @调用方法
  * $('.tips').tips();
+ * 
  * @未完成
- * xss
+ * 动画效果，触发方式，超出屏幕自动调整
  */
-(function($,window,document,undefined){
+;(function (factory) {
+    if (typeof define === "function" && (define.amd || define.cmd) && !jQuery) {
+        // AMD或CMD
+        define([ "jquery" ],factory);
+    } else if (typeof module === 'object' && module.exports) {
+        // Node/CommonJS
+        module.exports = function( root, jQuery ) {
+            if ( jQuery === undefined ) {
+                if ( typeof window !== 'undefined' ) {
+                    jQuery = require('jquery');
+                } else {
+                    jQuery = require('jquery')(root);
+                }
+            }
+            factory(jQuery);
+            return jQuery;
+        };
+    } else {
+        //Browser globals
+        factory(jQuery);
+    }
+}(function ($) {
 
 	//配置参数
 	var defaults = {
 		tipsCls: 'mod-tips', //框体class
 		triggerMode: 'hover', //触发方式:hover,click,focus
 		delayTime: 0, //延迟触发时间
-		destroyTime: 3000, //存在时间
+		destroyTime: 1000, //存在时间
+		appendTarget: 'body', //插入的目标元素
+		position: 'top', //方位
+		offset: 10, //偏移量单（px）
 		followMouse: false //是否跟随鼠标移动
 	};
 
@@ -35,14 +60,40 @@
 		 */
 		_.create = function(){
 			var content = $obj.data('tips');
-			var $box = $('<div class="'+opts.tipsCls+'">'+content+'</div>');
+			_.$box = $('<span class="'+opts.tipsCls+'">'+content+'</span>');
 			if(isShow) return;
-			$obj.click(function(){
-			console.log(1);
-				$b.append($box);
-				isShow = true;
-				_.destroy($box);
-			});
+			$b.append(_.$box);
+			_.position(_.$box);
+			isShow = true;
+		};
+
+		/**
+		 * 触发方式
+		 * @return {[type]} [description]
+		 */
+		_.trigger = function(){
+			switch(opts.triggerMode){
+				case 'hover':
+					$obj.hover(function(){
+						_.create();
+					}, function(){
+						// _.destroy(_.$box);
+					});
+				break;
+				case 'click':
+					$obj.click(function(){
+						_.create();
+					});
+				break;
+			}
+		};
+
+		/**
+		 * 定位
+		 * @return {[type]} [description]
+		 */
+		_.position = function(obj){
+			
 		};
 
 		/**
@@ -51,10 +102,16 @@
 		 * @return {[type]} [description]
 		 */
 		_.destroy = function(obj){
-			clearTimeout(time);
-			var time = setTimeout(function(){
+			if(opts.destroyTime === 0){
 				obj.remove();
-			}, opts.destroyTime);
+				isShow = false;
+			}else{
+				clearTimeout(time);
+				var time = setTimeout(function(){
+					obj.remove();
+					isShow = false;
+				}, opts.destroyTime);
+			}
 		};
 
 		/**
@@ -62,7 +119,7 @@
 		 * @return {[type]} [description]
 		 */
 		_.init = function(){
-			_.create();
+			_.trigger();
 		};
 
 		_.init();
@@ -83,4 +140,4 @@
 		});
 	};
 
-})(jQuery,window,document);
+}));

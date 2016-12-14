@@ -5,18 +5,47 @@
         <title>tips.js - Mss</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="../favicon.ico" rel="icon" type="image/x-icon" />
-        <link rel="stylesheet" type="text/css" href="http://maxiaoxiang.com/stylesheets/normalize.css" media="screen">
-        <link rel="stylesheet" type="text/css" href="http://maxiaoxiang.com/stylesheets/public.css" media="screen">
+        <!-- <link rel="stylesheet" type="text/css" href="http://maxiaoxiang.com/stylesheets/normalize.css" media="screen"> -->
+        <!-- <link rel="stylesheet" type="text/css" href="http://maxiaoxiang.com/stylesheets/public.css" media="screen"> -->
         <link rel="stylesheet" type="text/css" href="./style/tips.css" media="screen">
         <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+        <style>
+            .mod-tips{
+                padding: 8px 18px;
+                background: #000;
+                color: #fff;
+                font-size: 14px;
+                border-radius: 5px;
+                max-width: 200px;
+            }
+            .mod-tips:after{
+                content: "";
+                position: absolute;
+                left: 50%;
+                bottom: -4px;
+                margin-left: -2px;
+                border-top: 4px solid #000;
+                border-left: 4px solid transparent;
+                border-right: 4px solid transparent;
+            }
+        </style>
     </head>
     <body>
-        <span class="tips" data-tips="这是一条提示信息">悬停</span>
-        <span class="tips" data-tips="这是一条提示信息222">悬停222</span>
+        <div class="wrapper">
+            <div class="container">
+                <div class="content">
+                    <span class="tips" data-tips="这是一条提示信息这是一条提示信息" style="position:absolute;top:200px;left:350px;">悬停</span>
+                    <span class="tips" data-tips="这是一条提示信息222这是一条提示信息222这是一条提示信息222这是一条提示信息222这是一条提示信息222"style="position:absolute;top:600px;left:150px;">悬停222</span>
+                </div>
+            </div>
+        </div>
         <script src="./script/lib/jquery.min.js"></script>
         <script src="./script/jquery.tips.js"></script>
         <script>
-        $('.tips').tips();
+        $('.tips').tips({
+            destroyTime: 0,
+            position: 'top'
+        });
         </script>
     </body>
 </html>
