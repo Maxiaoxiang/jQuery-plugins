@@ -1,13 +1,34 @@
 /**
  * pagination分页插件
- * @version 1.1.5
+ * @version 1.2.2
  * @author mss
  * @url http://maxiaoxiang.com/jQuery-plugins/plugins/pagination.html
  *
  * @调用方法
  * $(selector).pagination();
  */
-(function($,window,document,undefined){
+;(function (factory) {
+    if (typeof define === "function" && (define.amd || define.cmd) && !jQuery) {
+        // AMD或CMD
+        define([ "jquery" ],factory);
+    } else if (typeof module === 'object' && module.exports) {
+        // Node/CommonJS
+        module.exports = function( root, jQuery ) {
+            if ( jQuery === undefined ) {
+                if ( typeof window !== 'undefined' ) {
+                    jQuery = require('jquery');
+                } else {
+                    jQuery = require('jquery')(root);
+                }
+            }
+            factory(jQuery);
+            return jQuery;
+        };
+    } else {
+        //Browser globals
+        factory(jQuery);
+    }
+}(function ($) {
 
 	//配置参数
 	var defaults = {
@@ -81,11 +102,12 @@
 				html += opts.coping ? '<a href="javascript:;" data-page="1">'+home+'</a><span>...</span>' : '';
 			}
 			var end = current + opts.count;
+			var start = '';
 			//修复到最后一页时比第一页少显示两页
 			if(current === pageCount){
-				var start = current - opts.count - 2;
+				start = current - opts.count - 2;
 			}else{
-				var start = current - opts.count;
+				start = current - opts.count;
 			}
 			((start > 1 && current < opts.count) || current == 1) && end++ ;
 			(current > pageCount - opts.count && current >= pageCount) && start++;
@@ -117,19 +139,20 @@
 		this.eventBind = function(){
 			var self = this;
 			var pageCount = this.getPageCount();//总页数
+			var index = 1;
 			$obj.off().on('click','a',function(){
 				if($(this).hasClass(opts.nextCls)){
-					var index = parseInt($obj.find('.'+opts.activeCls).text()) + 1;
+					index = parseInt($obj.find('.'+opts.activeCls).text()) + 1;
 				}else if($(this).hasClass(opts.prevCls)){
-					var index = parseInt($obj.find('.'+opts.activeCls).text()) - 1;
+					index = parseInt($obj.find('.'+opts.activeCls).text()) - 1;
 				}else if($(this).hasClass(opts.jumpBtnCls)){
 					if($obj.find('.'+opts.jumpIptCls).val() !== ''){
-						var index = parseInt($obj.find('.'+opts.jumpIptCls).val());
+						index = parseInt($obj.find('.'+opts.jumpIptCls).val());
 					}else{
 						return;
 					}
 				}else{
-					var index = parseInt($(this).data('page'));
+					index = parseInt($(this).data('page'));
 				}
 				self.filling(index);
 				typeof opts.callback === 'function' && opts.callback(self);
@@ -180,4 +203,4 @@
 		});
 	};
 
-})(jQuery,window,document);
+}));
