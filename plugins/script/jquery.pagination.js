@@ -1,6 +1,6 @@
 /**
  * pagination分页插件
- * @version 1.2.2
+ * @version 1.3.0
  * @author mss
  * @url http://maxiaoxiang.com/jQuery-plugins/plugins/pagination.html
  *
@@ -42,8 +42,10 @@
 		nextContent: '>',		//下一页内容
 		activeCls: 'active',	//当前页选中状态
 		coping: false,			//首页和尾页
+		isHide: false,			//当前页数为0页或者1页时不显示分页
 		homePage: '',			//首页节点内容
 		endPage: '',			//尾页节点内容
+		keepShowPN: false,		//是否一直显示上一页下一页
 		count: 3,				//当前页前后分页个数
 		jump: false,			//跳转到指定页数
 		jumpIptCls: 'jump-ipt',	//文本框内容
@@ -70,6 +72,7 @@
 
 		/**
 		 * 获取总页数
+		 * 如果配置了总条数和每页显示条数，将会自动计算总页数并略过总页数配置，反之
 		 * @return int p 总页数
 		 */
 		this.getPageCount = function(){
@@ -91,15 +94,17 @@
 		this.filling = function(index){
 			var html = '';
 			current = index || opts.current;//当前页码
-			var pageCount = this.getPageCount();
-			if(current > 1){//上一页
+			var pageCount = this.getPageCount();//获取的总页数
+			if(opts.keepShowPN || current > 1){//上一页
 				html += '<a href="javascript:;" class="'+opts.prevCls+'">'+opts.prevContent+'</a>';
 			}else{
-				$obj.find('.'+opts.prevCls) && $obj.find('.'+opts.prevCls).remove();
+				if(opts.keepShowPN == false){
+					$obj.find('.'+opts.prevCls) && $obj.find('.'+opts.prevCls).remove();
+				}
 			}
-			if(current >= opts.count && current != 1 && pageCount != opts.count){
+			if(current >= opts.count + 2 && current != 1 && pageCount != opts.count){
 				var home = opts.coping && opts.homePage ? opts.homePage : '1';
-				html += opts.coping ? '<a href="javascript:;" data-page="1">'+home+'</a><span>...</span>' : '';
+				html += opts.coping ? '<a href="javascript:;" data-page="1">'+home+'</a>' : '';
 			}
 			var end = current + opts.count;
 			var start = '';
@@ -109,14 +114,14 @@
 			}else{
 				start = current - opts.count;
 			}
-			((start > 1 && current < opts.count) || current == 1) && end++ ;
+			((start > 1 && current < opts.count) || current == 1) && end++;
 			(current > pageCount - opts.count && current >= pageCount) && start++;
 			for (;start <= end; start++) {
 				if(start <= pageCount && start >= 1){
 					if(start != current){
 						html += '<a href="javascript:;" data-page="'+start+'">'+ start +'</a>';
 					}else{
-						html += '<span class="'+opts.activeCls+'">'+ start +'</span>';
+						html += '<span class="'+opts.activeCls+'">'+start+'</span>';
 					}
 				}
 			}
@@ -124,10 +129,12 @@
 				var end = opts.coping && opts.endPage ? opts.endPage : pageCount;
 				html += opts.coping ? '<span>...</span><a href="javascript:;" data-page="'+pageCount+'">'+end+'</a>' : '';
 			}
-			if(current < pageCount){//下一页
+			if(opts.keepShowPN || current < pageCount){//下一页
 				html += '<a href="javascript:;" class="'+opts.nextCls+'">'+opts.nextContent+'</a>'
 			}else{
-				$obj.find('.'+opts.nextCls) && $obj.find('.'+opts.nextCls).remove();
+				if(opts.keepShowPN == false){
+					$obj.find('.'+opts.nextCls) && $obj.find('.'+opts.nextCls).remove();
+				}
 			}
 
 			html += opts.jump ? '<input type="text" class="'+opts.jumpIptCls+'"><a href="javascript:;" class="'+opts.jumpBtnCls+'">'+opts.jumpBtn+'</a>' : '';
@@ -142,9 +149,19 @@
 			var index = 1;
 			$obj.off().on('click','a',function(){
 				if($(this).hasClass(opts.nextCls)){
-					index = parseInt($obj.find('.'+opts.activeCls).text()) + 1;
+					if($obj.find('.'+opts.activeCls).text() >= pageCount){
+						$(this).addClass('disabled');
+						return false;
+					}else{
+						index = parseInt($obj.find('.'+opts.activeCls).text()) + 1;
+					}
 				}else if($(this).hasClass(opts.prevCls)){
-					index = parseInt($obj.find('.'+opts.activeCls).text()) - 1;
+					if($obj.find('.'+opts.activeCls).text() <= 1){
+						$(this).addClass('disabled');
+						return false;
+					}else{
+						index = parseInt($obj.find('.'+opts.activeCls).text()) - 1;
+					}
 				}else if($(this).hasClass(opts.jumpBtnCls)){
 					if($obj.find('.'+opts.jumpIptCls).val() !== ''){
 						index = parseInt($obj.find('.'+opts.jumpIptCls).val());
@@ -184,6 +201,7 @@
 		this.init = function(){
 			this.filling(opts.current);
 			this.eventBind();
+			if(opts.isHide && this.getPageCount() == '1' || this.getPageCount() == '0') $obj.hide();
 		};
 		this.init();
 	};

@@ -5,9 +5,6 @@
  *
  * @调用方法
  * $('.tips').tips();
- * 
- * @未完成
- * 动画效果，触发方式，超出屏幕自动调整
  */
 ;(function (factory) {
     if (typeof define === "function" && (define.amd || define.cmd) && !jQuery) {
@@ -34,13 +31,12 @@
 
 	//配置参数
 	var defaults = {
-		tipsCls: 'mod-tips', //框体class
-		triggerMode: 'hover', //触发方式:hover,click,focus
+		tipsCls: 'tips', //框体class
+		triggerMode: 'hover', //触发方式:hover,click
 		delayTime: 0, //延迟触发时间
-		destroyTime: 1000, //存在时间
-		appendTarget: 'body', //插入的目标元素
-		position: 'top', //方位
-		offset: 10, //偏移量单（px）
+		destroyTime: 0, //存在时间
+		position: ['ct','cb'], //方位
+		offset: [0,0], //偏移量（px）
 		followMouse: false //是否跟随鼠标移动
 	};
 
@@ -59,10 +55,10 @@
 		 * @return {[type]} [description]
 		 */
 		_.create = function(){
+			if(isShow) return;
 			var content = $obj.data('tips');
 			_.$box = $('<span class="'+opts.tipsCls+'">'+content+'</span>');
-			if(isShow) return;
-			$b.append(_.$box);
+			$obj.append(_.$box);
 			_.position(_.$box);
 			isShow = true;
 		};
@@ -93,7 +89,13 @@
 		 * @return {[type]} [description]
 		 */
 		_.position = function(obj){
-			
+			var points = {
+				'l': 0,
+				't': 0,
+				'c': 0.5,
+				'r': 1,
+				'b': 1
+			};
 		};
 
 		/**
