@@ -1,6 +1,6 @@
 /**
  * pagination分页插件
- * @version 1.3.0
+ * @version 1.3.1
  * @author mss
  * @url http://maxiaoxiang.com/jQuery-plugins/plugins/pagination.html
  *
@@ -104,16 +104,12 @@
 			}
 			if(current >= opts.count + 2 && current != 1 && pageCount != opts.count){
 				var home = opts.coping && opts.homePage ? opts.homePage : '1';
-				html += opts.coping ? '<a href="javascript:;" data-page="1">'+home+'</a>' : '';
+				html += opts.coping ? '<a href="javascript:;" data-page="1">'+home+'</a><span>...</span>' : '';
 			}
 			var end = current + opts.count;
 			var start = '';
 			//修复到最后一页时比第一页少显示两页
-			if(current === pageCount){
-				start = current - opts.count - 2;
-			}else{
-				start = current - opts.count;
-			}
+			start = current === pageCount ? current - opts.count - 2 : current - opts.count;
 			((start > 1 && current < opts.count) || current == 1) && end++;
 			(current > pageCount - opts.count && current >= pageCount) && start++;
 			for (;start <= end; start++) {
@@ -136,16 +132,14 @@
 					$obj.find('.'+opts.nextCls) && $obj.find('.'+opts.nextCls).remove();
 				}
 			}
-
 			html += opts.jump ? '<input type="text" class="'+opts.jumpIptCls+'"><a href="javascript:;" class="'+opts.jumpBtnCls+'">'+opts.jumpBtn+'</a>' : '';
-
 			$obj.empty().html(html);
 		};
 
 		//绑定事件
 		this.eventBind = function(){
-			var self = this;
-			var pageCount = this.getPageCount();//总页数
+			var that = this;
+			var pageCount = that.getPageCount();//总页数
 			var index = 1;
 			$obj.off().on('click','a',function(){
 				if($(this).hasClass(opts.nextCls)){
@@ -171,8 +165,8 @@
 				}else{
 					index = parseInt($(this).data('page'));
 				}
-				self.filling(index);
-				typeof opts.callback === 'function' && opts.callback(self);
+				that.filling(index);
+				typeof opts.callback === 'function' && opts.callback(that);
 			});
 			//输入跳转的页码
 			$obj.on('input propertychange','.'+opts.jumpIptCls,function(){
@@ -191,8 +185,8 @@
 			$document.keydown(function(e){
 		        if(e.keyCode == 13 && $obj.find('.'+opts.jumpIptCls).val()){
 		        	var index = parseInt($obj.find('.'+opts.jumpIptCls).val());
-		            self.filling(index);
-					typeof opts.callback === 'function' && opts.callback(self);
+		            that.filling(index);
+					typeof opts.callback === 'function' && opts.callback(that);
 		        }
 		    });
 		};
