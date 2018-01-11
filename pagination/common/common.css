@@ -4,6 +4,15 @@ body {
     background: #fff;
 }
 
+h1 {
+    font-size: 40px;
+}
+
+p,
+pre {
+    margin: 10px 0;
+}
+
 ::selection {
     background: #000;
     color: #fff;
@@ -108,6 +117,15 @@ pre {
     padding: 10px;
     border: 1px dashed #bdbdbd;
     background: #f9f9f9;
+}
+
+.update-log .title {
+    margin: 0;
+    font-size: 20px;
+}
+
+.update-log ul li {
+    margin: 5px 0;
 }
 
 .bad {

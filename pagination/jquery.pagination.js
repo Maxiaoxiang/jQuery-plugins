@@ -1,21 +1,22 @@
 /**
- * pagination分页插件
- * @version 1.5.0
+ * pagination.js 1.5.1
+ * A jQuery plugin to provide simple yet fully customisable pagination.
+ * @version 1.5.1
  * @author mss
- * @url https://github.com/Maxiaoxiang
+ * @url https://github.com/Maxiaoxiang/jQuery-plugins
  *
  * @调用方法
  * $(selector).pagination(option, callback);
- * -此处callback是初始化调用，option里的callback才是点击页码后调用
+ * -此处callback是初始化调用，option里的callback是点击页码后调用
  * 
  * -- example --
  * $(selector).pagination({
- *     ...
- *     callback: function(api){
- *         console.log('点击页码调用该回调'); //把请求接口函数放在这儿，每次点击请求一次
+ *     ... // 配置参数
+ *     callback: function(api) {
+ *         console.log('点击页码调用该回调'); //切换页码时执行一次回调
  *     }
  * }, function(){
- *     console.log('初始化'); //插件初始化时调用该回调，比如请求第一次接口来初始化分页配置
+ *     console.log('初始化'); //插件初始化时调用该方法，比如请求第一次接口来初始化分页配置
  * });
  */
 ;
@@ -199,7 +200,11 @@
         this.init = function () {
             this.filling(opts.current);
             this.eventBind();
-            if (opts.isHide && this.getPageCount() == '1' || this.getPageCount() == '0') $obj.hide();
+            if (opts.isHide && this.getPageCount() == '1' || this.getPageCount() == '0') {
+                $obj.hide();
+            } else {
+                $obj.show();
+            }
         };
         this.init();
     };

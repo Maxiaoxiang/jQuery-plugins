@@ -14,11 +14,20 @@
         <div class="wrapper">
             <div class="container">
                 <div class="content">
-                    <h1>分页-pagination(1.5.0)</h1>
+                    <h1>分页-pagination(1.5.1)</h1>
                     <p>需先引入jQuery，再引入pagination组件</p>
                     <pre class="bad">&lt;script&nbsp;src="jquery.js"&gt;&lt;/script&gt;</pre>
                     <pre class="bad">&lt;script&nbsp;src="jquery.pagination.js"&gt;&lt;/script&gt;</pre>
                     <p>组件样式与功能分离，自定义样式（注：这里加样式是为了示例看的清楚，操作方便。）</p>
+                    <div class="update-log eg">
+                        <p class="title">更新日志</p>
+                        <ul>
+                            <li>2018-01-11 修复超过1页时不会自动显示bug</li>
+                            <li>2017-09-27 优化分页逻辑</li>
+                            <li>2017-03-27 更新api参数，增加是否保持上下页按钮，为0时不显示分页</li>
+                            <li>2016-08-11 修复总数据为0时不显示分页，修复总数据为1时显示默认总页数bug，改成不显示分页。</li>
+                        </ul>
+                    </div>
                     <div class="eg">
                         <div class="M-box"></div>
                         <p class="tips">当前是第<span class="now"></span>页</p>
@@ -111,12 +120,12 @@
                                 </tr>
                                 <tr>
                                     <td>prevContent</td>
-                                    <td>'<'</td>
+                                    <td>'&lt;'</td>
                                     <td class="explain">上一页节点内容</td>
                                 </tr>
                                 <tr>
                                     <td>nextContent</td>
-                                    <td>'>'</td>
+                                    <td>'&gt;'</td>
                                     <td class="explain">下一页节点内容</td>
                                 </tr>
                                 <tr>
@@ -228,7 +237,6 @@
                 },function(api){
                     $('.now').text(api.getCurrent());
                 });
-
                 $('.M-box2').pagination({
                     coping:true,
                     homePage:'首页',
@@ -251,12 +259,6 @@
                     endPage:'末页',
                     prevContent:'上页',
                     nextContent:'下页'
-                });
-
-                $('.M-box4').pagination({
-                    pageCount: 3, //初始化时总页数3页
-                }, function(api){
-                    api.setPageCount(20);//动态修改总页数为20页
                 });
 
                 $('.M-box5').pagination({
