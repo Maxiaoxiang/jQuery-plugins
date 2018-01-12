@@ -103,7 +103,7 @@ table tbody tr:nth-child(even) {
     background: #E7EFF9;
 }
 
-pre {
+.hljs, .hljs-subst {
     padding: 10px;
     font-family: Monaco, Consolas, "Courier New";
 }
@@ -133,4 +133,5 @@ pre {
     border: 1px dashed #bdbdbd;
     color: #757575;
     background: #f9f9f9;
+    font-family: Monaco, Consolas, "Courier New";
 }
