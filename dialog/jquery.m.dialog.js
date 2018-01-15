@@ -8,14 +8,14 @@
 	//默认配置
 	var options = {
 		dialogCls: 'mod-dialog', //弹框class
-		shadeCls: 'mod-shade', //遮罩class
+		maskCls: 'mod-shade', //遮罩class
 		title: '', //标题
 		content: '', //内容
 		button: {
 			'取消|cancel': function(){alert('点击了取消')},
 			'确定|yes': function(){alert('点击了确定')}
 		}, //按钮
-		hasShade: true, //是否有遮罩
+		hasMask: true, //是否有遮罩
 		clickShadeHide: false //是否可以点击遮罩关闭
 	};
 
@@ -39,7 +39,7 @@
 		var opts = $.extend({}, options, parameter);
 		var $body = $('body');
 		var $box = $('<div id="dialog" class="'+opts.dialogCls+'"></div>');
-		var $shade = opts.hasShade ? $('<div id="shade" class="'+opts.shadeCls+'"></div>') : '';
+		var $shade = opts.hasMask ? $('<div id="shade" class="'+opts.maskCls+'"></div>') : '';
 		var title = opts.title !== '' ? '<div class="dialog-title">'+opts.title+'</div>' : '';
 		var html = '<div id="inner" class="dialog-inner">\
 						<div class="dialog-main">\
@@ -59,7 +59,7 @@
 			})(name);
 		}
 		$body.append($box).append($shade);
-		if(opts.hasShade && opts.clickShadeHide && $('#shade').length){
+		if(opts.hasMask && opts.clickShadeHide && $('#shade').length){
 			$('#dialog').on('click', function(e){
 				e.target.id === 'inner' && dialog.close();
 			});
