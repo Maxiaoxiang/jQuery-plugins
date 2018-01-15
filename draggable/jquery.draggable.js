@@ -1,8 +1,7 @@
 /**
  * draggable拖动插件
- * @version 0.2
+ * @version 1.0.2
  * @url http://maxiaoxiang.com
- * @E-mail 251445460@qq.com
  */
 ;(function($,window,document,undefined){
 

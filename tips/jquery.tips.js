@@ -33,6 +33,7 @@
     //配置参数
     var defaults = {
         tipsCls: 'tips', //框体class
+        node: '', //显示的节点
         triggerMode: 'hover', //触发方式:hover,click
         delayTime: 0, //延迟触发时间
         destroyTime: 0, //存在时间
@@ -98,7 +99,7 @@
 
         /**
          * 销毁
-         * @param {Object} 销毁对象
+         * @param obj 销毁对象
          */
         _.destroy = function (obj) {
             if (opts.destroyTime === 0) {

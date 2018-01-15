@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="UTF-8">
+        <title>m.dialog.js - Mss</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="../favicon.ico" rel="icon" type="image/x-icon" />
+        <link rel="stylesheet" type="text/css" href="http://maxiaoxiang.com/stylesheets/normalize.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://maxiaoxiang.com/stylesheets/public.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="./style/m.dialog.css" media="screen">
+        <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="container">
+                <div class="sidebar">
+                    <div class="hd">
+                        <div class="site-meta">
+                            <a href="http://maxiaoxiang.com" class="brand">
+                                <span class="site-title">Mss。</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="bd">
+                        <div class="site-nav">
+                            <ul class="menu">
+                                <li class="menu-item menu-item-active">
+                                    <a href="http://maxiaoxiang.com/" class="repertory">插件库</a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="http://maxiaoxiang.com/blog/" target="_blank" class="blog">博客</a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="http://maxiaoxiang.com/message.html" class="message">留言板</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="ft">
+                        <div class="site-info">
+                            <img src="https://avatars0.githubusercontent.com/u/11399676?v=3&s=460" alt="Mss。" class="avatar">
+                            <p class="name">Mss。</p>
+                            <p class="description">be happy</p>
+                            <div class="links">
+                                <span class="links-item">
+                                    <a href="https://github.com/Maxiaoxiang" target="_blank" title="GitHub">GitHub</a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content">
+                    <h1>移动端对话框-dialog</h1>
+                    <p>需先引入jQuery，再引入dialog组件</p>
+                    <pre class="bad">&lt;script&nbsp;src="jquery.js"&gt;&lt;/script&gt;</pre>
+                    <pre class="bad">&lt;script&nbsp;src="jquery.m.dialog.js"&gt;&lt;/script&gt;</pre>
+                    <p>组件样式与功能分离，自定义样式</p>
+                    <div class="eg">
+                        <iframe width="100%" height="300" src="//jsrun.net/Z9KKp/embedded/result/light/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+                        <p>HTML</p>
+        <pre style="margin:15px 0;font:100 12px/18px;padding:10px 12px;border:#ccc 1px solid;border-left-width:4px;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"><span style="color:#000">$</span>(<span style="color:#a11">'button'</span>).<span style="color:#000">click</span>(<span style="color:#708">function</span>(){<br>    <span style="color:#000">dialog</span>.<span style="color:#000">open</span>({<br>        <span style="color:#000">title</span>: <span style="color:#a11">'标题'</span>,<br>        <span style="color:#000">content</span>: <span style="color:#a11">'内容'</span>,<br>        <span style="color:#000">clickShadeHide</span>: <span style="color:#219">false</span>,<br>        <span style="color:#000">button</span>: {<br>            <span style="color:#a11">'取消|cancel'</span>: <span style="color:#708">function</span>(){<br>                <span style="color:#000">dialog</span>.<span style="color:#000">close</span>(); <span style="color:#a50">//关闭对话框</span><br>             },<br>            <span style="color:#a11">'确定|yes'</span>: <span style="color:#708">function</span>(){<br>                <span style="color:#000">dialog</span>.<span style="color:#000">close</span>(); <span style="color:#a50">//关闭对话框</span><br>                <span style="color:#a50">/*自定义的回调完后显示返回状态，与插件无关*/</span><br>                <span style="color:#708">var</span> <span style="color:#00f">$body</span> = <span style="color:#000">$</span>(<span style="color:#a11">'body'</span>);<br>                <span style="color:#708">var</span> <span style="color:#00f">html</span> = <span style="color:#a11">'&lt;div id="tip" class="mod-tip"&gt;\</span><br>                                      <span style="color:#a11">&lt;div class="tip-inner"&gt;\</span><br>                                          <span style="color:#a11">&lt;div class="tip-main"&gt;\</span><br>                                              <span style="color:#a11">&lt;div class="tip_loading"&gt;\</span><br>                                                  <span style="color:#a11">&lt;div class="tip_loading_leaf tip_loading_leaf_0"&gt;&lt;/div&gt;\</span><br>                                                  <span style="color:#a11">&lt;div class="tip_loading_leaf tip_loading_leaf_1"&gt;&lt;/div&gt;\</span><br>                                                  <span style="color:#a11">&lt;div class="tip_loading_leaf tip_loading_leaf_2"&gt;&lt;/div&gt;\</span><br>                                                  <span style="color:#a11">&lt;div class="tip_loading_leaf tip_loading_leaf_3"&gt;&lt;/div&gt;\</span><br>                                                  <span style="color:#a11">&lt;div class="tip_loading_leaf tip_loading_leaf_4"&gt;&lt;/div&gt;\</span><br>                                                  <span style="color:#a11">&lt;div class="tip_loading_leaf tip_loading_leaf_5"&gt;&lt;/div&gt;\</span><br>                                                  <span style="color:#a11">&lt;div class="tip_loading_leaf tip_loading_leaf_6"&gt;&lt;/div&gt;\</span><br>                                                  <span style="color:#a11">&lt;div class="tip_loading_leaf tip_loading_leaf_7"&gt;&lt;/div&gt;\</span><br>                                                  <span style="color:#a11">&lt;div class="tip_loading_leaf tip_loading_leaf_8"&gt;&lt;/div&gt;\</span><br>                                                  <span style="color:#a11">&lt;div class="tip_loading_leaf tip_loading_leaf_9"&gt;&lt;/div&gt;\</span><br>                                                  <span style="color:#a11">&lt;div class="tip_loading_leaf tip_loading_leaf_10"&gt;&lt;/div&gt;\</span><br>                                                  <span style="color:#a11">&lt;div class="tip_loading_leaf tip_loading_leaf_11"&gt;&lt;/div&gt;\</span><br>                                              <span style="color:#a11">&lt;/div&gt;\</span><br>                                              <span style="color:#a11">&lt;p class="msg"&gt;处理中...&lt;/p&gt;\</span><br>                                          <span style="color:#a11">&lt;/div&gt;\</span><br>                                      <span style="color:#a11">&lt;/div&gt;\</span><br>                                  <span style="color:#a11">&lt;/div&gt;'</span>;<br>                <span style="color:#000-2">$body</span>.<span style="color:#000">append</span>(<span style="color:#000-2">html</span>);<br>                <span style="color:#000">setTimeout</span>(<span style="color:#708">function</span>(){<br>                    <span style="color:#708">if</span>(<span style="color:#000">$</span>(<span style="color:#a11">'#tip'</span>).<span style="color:#000">length</span> &lt; <span style="color:#164">1</span>) <span style="color:#708">return</span>;<br>                    <span style="color:#000">$</span>(<span style="color:#a11">'#tip'</span>).<span style="color:#000">remove</span>();<br>                }, <span style="color:#164">2000</span>);<br>            }<br>        }<br>   });<br>});</pre>
+                    </div>
+                    <div class="options">
+                        <p>options(参数配置)</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>参数</td>
+                                    <td>默认值</td>
+                                    <td class="explain">说明</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>dialogCls</td>
+                                    <td>'mod-dialog'</td>
+                                    <td class="explain">弹框class</td>
+                                </tr>
+                                <tr>
+                                    <td>shadeCls</td>
+                                    <td>mod-shade</td>
+                                    <td class="explain">遮罩class</td>
+                                </tr>
+                                <tr>
+                                    <td>title</td>
+                                    <td>''</td>
+                                    <td class="explain">标题</td>
+                                </tr>
+                                <tr>
+                                    <td>content</td>
+                                    <td>''</td>
+                                    <td class="explain">内容</td>
+                                </tr>
+                                <tr>
+                                    <td>button</td>
+                                    <td>{'取消|cancel': function(){alert('点击了取消')},'确定|yes': function(){alert('点击了确定')}}</td>
+                                    <td class="explain">取消(按钮文字)|cancel(按钮class)，按钮触发的回调</td>
+                                </tr>
+                                <tr>
+                                    <td>hasShade</td>
+                                    <td>true</td>
+                                    <td class="explain">是否有遮罩</td>
+                                </tr>
+                                <tr>
+                                    <td>clickShadeHide</td>
+                                    <td>false</td>
+                                    <td class="explain">是否能点击遮罩关闭对话框</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

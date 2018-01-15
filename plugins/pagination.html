@@ -297,9 +297,8 @@
 
                 $('.M-box4').pagination({
                     pageCount: 3, //初始化时总页数3页
-                    callback:function(api){
-                        api.setPageCount(20);//动态修改总页数为20页
-                    }
+                }, function(api){
+                    api.setPageCount(20);//动态修改总页数为20页
                 });
 
                 $('.M-box5').pagination({

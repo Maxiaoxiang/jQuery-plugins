@@ -1,0 +1,50 @@
+@charset "UTF-8";
+.test,.test3{
+	position: absolute;
+	height:100px;
+	width:100px;
+	background:#ccc;
+	z-index: 10;
+}
+.test1{
+	position: relative;
+	height:100px;
+	width:100px;
+	background:#ccc;
+}
+.handle{
+	margin:0;
+}
+.tip1{
+    position: absolute;
+    left: 500px;
+    top: 100px;
+    color: #757575;
+}
+strong{
+	color:#DD1E1E;
+}
+.x{
+	padding-right: 20px;
+}
+.range{
+	position: relative;
+	width:300px;
+	height:300px;
+	background:#fff;
+	border:1px solid #ccc;
+}
+.testmg{
+	padding-top:100px;
+}
+.tip,.tip2{
+	padding-left: 150px;
+    color: #757575;
+}
+.drag{
+	position: relative;
+}
+.clone{
+	border:2px dashed #000;
+	cursor: move;
+}

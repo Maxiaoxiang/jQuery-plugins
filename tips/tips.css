@@ -1,0 +1,19 @@
+.tips {
+    padding: 8px 18px;
+    background: #000;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 5px;
+    max-width: 200px;
+}
+
+.tips:after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -4px;
+    margin-left: -2px;
+    border-top: 4px solid #000;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+}
